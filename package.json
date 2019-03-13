@@ -1,0 +1,32 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "scripts": {
+    "web.build": "zeroconfig web.build",
+    "web.dev.start": "zeroconfig web.dev.start",
+    "web.server.build": "zeroconfig web.server.build",
+    "web.server.dev.build.watch": "zeroconfig web.server.dev.build.watch",
+    "web.server.dev.start": "zeroconfig web.server.dev.start",
+    "start": "multiplerun development",
+    "build": "npm run web.build && npm run web.server.build"
+  },
+  "multiplerun": {
+    "development": [
+      [
+        "npm run web.server.dev.build.watch",
+        "npm run web.server.dev.start"
+      ],
+      "npm run web.dev.start"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "react": "^16.8.4",
+    "react-app-polyfill": "^0.2.2",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "multiplerun": "^0.2.1",
+    "react-zeroconfig": "^2.0.0"
+  }
+}
